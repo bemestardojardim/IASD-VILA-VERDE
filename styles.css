@@ -1,0 +1,46 @@
+.title {
+    color: green;
+}
+/* Estilos generales */
+body {
+	font-family: Arial, sans-serif;
+}
+h1 {
+	text-align: center;
+}
+p {
+	text-align: center;
+}
+ol {
+	margin-left: 20px;
+}
+
+/* Estilos para botones */
+.hora-button {
+	background-color: #4CAF50;
+	color: white;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	border-radius: 10px;
+	margin: 5px;
+	cursor: pointer;
+	border: none;
+	width: 100%;
+}
+.hora-button:hover {
+	background-color: #3e8e41;
+}
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 600px) {
+	ol {
+		margin-left: 0;
+	}
+	.hora-button {
+		width: 100%;
+		margin: 5px 0;
+	}
+}
