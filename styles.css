@@ -44,3 +44,113 @@ ol {
 		margin: 5px 0;
 	}
 }
+
+/* Apply a sans-serif font to the whole page */
+body {
+  font-family: sans-serif;
+}
+
+/* Center the page title */
+h1 {
+  text-align: center;
+}
+
+/* Add some spacing between the page title and the following paragraph */
+h1 + p {
+  margin-top: 1em;
+}
+
+/* Style the buttons used to toggle the dropdown menus */
+.hora-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+/* Style the dropdown menus */
+#lista,
+#louvor {
+  display: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/* Show the dropdown menus when the corresponding button is clicked */
+#lista.show,
+#louvor.show {
+  display: block;
+}
+
+  /* Estilos para el título de la página */
+            h1 {
+                text-align: center;
+                font-size: 36px;
+                margin-bottom: 20px;
+            }
+
+            /* Estilos para el párrafo de introducción */
+            p {
+                text-align: center;
+                font-size: 18px;
+            }
+
+            /* Estilos para los botones de hora */
+            .hora-button {
+                display: block;
+                margin-bottom: 10px;
+                background-color: #0077cc;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                font-size: 18px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .hora-button:hover {
+                background-color: #005c99;
+            }
+
+            /* Estilos para las listas de botones */
+            .lista {
+                display: none;
+                padding-left: 20px;
+            }
+
+            .lista button {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+            /* Estilos para las cajas de texto */
+            .cajas {
+                display: none;
+                margin-top: 10px;
+                text-align: center;
+            }
+
+            .cajas div {
+                display: inline-block;
+                width: 33%;
+                text-align: center;
+                padding: 10px;
+                box-sizing: border-box;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+
+            .cajas div:last-child {
+                margin-right: 0;
+            }

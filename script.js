@@ -1,18 +1,17 @@
-let numButtonClicks = 0;
-function buttonClicked() {
-    numButtonClicks = numButtonClicks + 1;
-    document.getElementById("mainDiv").textContent =
-        "Button Clicked times: " + numButtonClicks;
+function toggleLouvor() {
+  var louvor = document.getElementById("louvor");
+  if (louvor.style.display === "none") {
+    louvor.style.display = "block";
+  } else {
+    louvor.style.display = "none";
+  }
 }
-function redirigir(url) {
-    window.location.href = url;
+
+function toggleLista() {
+  var lista = document.getElementById("lista");
+  if (lista.style.display === "none") {
+    lista.style.display = "block";
+  } else {
+    lista.style.display = "none";
+  }
 }
-<button id="myButton">Click me</button>
-
-<script>
-document.getElementById("myButton").addEventListener("click", function() {
-  alert("Hello World!");
-});
-</script>
-
-
