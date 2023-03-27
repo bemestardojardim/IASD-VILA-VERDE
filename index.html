@@ -4,9 +4,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Organización de evento hora por hora</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-<link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css" />
 
-            <link rel="stylesheet" type="text/css" href="estilos.css">
+        <link rel="stylesheet" type="text/css" href="estilos.css" />
 
         <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
@@ -21,60 +21,70 @@
         <h1 style="text-align: center">Programa del culto sabatico</h1>
         <h4 style="text-align: center">
             Este conteúdo é exclusivo para administradores e contém ferramentas
-            e utilidades para a gestão da plataforma. É importante que cada
-            pessoa com acesso a este site envie semanalmente, antes da
-            sexta-feira, o material correspondente utilizando a opção de enviar
-            atualizações. Dessa forma, garantimos a atualização constante da
-            plataforma e podemos realizar as tarefas de administração de forma
+            e utilidades para a gestão da plataforma. Dessa forma, podemos realizar as tarefas de administração de forma
             eficiente e eficaz.
         </h4>
         <p style="text-align: center">
-            A continuación se presenta el programa del culto sabatico:
+            A continuación se presenta ferramentas pro programa do culto sabatico:
         </p>
 
         <ol>
-            <li>
-                <a
-                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fondo.html"
-                    target="_blank"
-                    class="hora-button"
-                    >Musica de fondo Instrumental Enche-me | By Gabriel Alves|
-                    Youtube</a
-                >
-            </li>
+           <li onclick="document.querySelector('input[type=checkbox]').checked = true;">
+  <input type="checkbox" name="item" value="valor del item">
+  <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fondo.html" target="_blank" class="hora-button">
+    Musica de fondo Instrumental Enche-me | By Gabriel Alves| Youtube
+  </a>
+</li>
 
-            <li>
-                <button class="hora-button" onclick="toggleLista()">
-                    9:00-10:10: Momento de louvor ( Perguntar)
-                </button>
-                <div id="lista" style="display: none">
-                    <button>Louvor 1</button>
-                    <button>Louvor 2</button>
-                    <button>Louvor 3</button>
-                </div>
-            </li>
 
-            <li>
-                <a
-                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fines.html"
-                    target="_blank"
-                    class="hora-button">
-                    Informativo mundial</a
-                >
-            </li>
+           <li onclick="checkItem(this)">
+    <input type="checkbox" name="item" value="valor del item">
+    <button class="hora-button" onclick="toggleLista()">
+        Momento de louvor ( Perguntar)
+    </button>
+    <div id="lista" style="display: none">
+        <button>Louvor 1</button>
+        <button>Louvor 2</button>
+        <button>Louvor 3</button>
+    </div>
+</li>
 
-            <li>
-                <button class="hora-button" onclick="toggleLouvor()">
-                    Louvor
-                </button>
-                <div id="louvor" style="display: none">
-                    <button>Louvor 1</button>
-                    <button>Louvor 2</button>
-                    <button>Louvor 3</button>
-                </div>
-            </li>
+<script>
+function checkItem(li) {
+  const checkbox = li.querySelector('input[type="checkbox"]');
+  checkbox.checked = !checkbox.checked;
+}
+</script>
 
-            <li>
+
+       <li onclick="document.getElementById('item-1').checked = true;">
+    <input type="checkbox" id="item-1" name="item" value="valor del item">
+    <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/informativo.html" target="_blank" class="hora-button">
+        Informativo mundial
+    </a>
+</li>
+
+
+
+
+
+
+     <li onclick="document.querySelector('input[type=checkbox]').checked = true;">
+    <input type="checkbox" name="item" value="valor del item">
+    <button class="hora-button" onclick="toggleLouvor()">
+        Louvor
+    </button>
+    <div id="louvor" style="display: none">
+        <button>Louvor 1</button>
+        <button>Louvor 2</button>
+        <button>Louvor 3</button>
+    </div>
+</li>
+
+
+
+
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/inicioes.html"
                     target="_blank"
@@ -82,7 +92,7 @@
                     >9:00-10:10: Escola Sabatina</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/umahora.html"
                     target="_blank"
@@ -90,7 +100,7 @@
                     ES uma hora | clik Aqui</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fines.html"
                     target="_blank"
@@ -99,14 +109,14 @@
                 >
             </li>
 
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion8()">
                     10:16: Oracao Final ES
                 </button>
             </li>
             <h1>DOXOLOGIA</h1>
-            <li></li>
-            <li>
+
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/anuncios.html"
                     target="_blank"
@@ -114,7 +124,7 @@
                     >Anuncios (Preguntar)</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/entrada.html"
                     target="_blank"
@@ -122,13 +132,13 @@
                     Entrada a Plataforma ( Hino 21 )</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Oraçao Dizimos e Ofrendas (Perguntar)
                 </button>
             </li>
 
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/provadevede.html"
                     target="_blank"
@@ -136,7 +146,7 @@
                     >Provad e Vede | Youtube (clik Aqui)</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/ofertorio.html"
                     target="_blank"
@@ -144,7 +154,7 @@
                     >Diaconos Recolhem as Oferendas ( Hino 572 )</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Momento de Louvor (Perguntar)
                 </button>
@@ -176,40 +186,40 @@
                 </div>
             </li>
 
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Hino inicial (Escolha do Pregador)
                 </button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Horaçao de Joelhos
                 </button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Adoraçao infantil
                 </button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Musica especial (Perguntar)
                 </button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">Sermao</button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">
                     Hino Final
                 </button>
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <button class="hora-button" onclick="accion11()">Saida</button>
             </li>
             <h1>Utilidades</h1>
 
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://rdrop.link/"
                     target="_blank"
@@ -217,7 +227,7 @@
                     >Transferir arquivos pro computador | clik Aqui</a
                 >
             </li>
-            <li>
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
                     href="https://bemestardojardim.github.io/IASD-VILA-VERDE/domingo.html"
                     target="_blank"
@@ -225,35 +235,15 @@
                     >Domingo | clik Aqui</a
                 >
             </li>
-            
-            
-            <li>
-                 <li>
+
+            <li><input type="checkbox" name="item" value="valor del item">
                 <a
-                    href="            https://webtopdf.com/es/
-"
+                    href=" https://webtopdf.com/es/"
                     target="_blank"
                     class="hora-button"
-                    >Conversor a PDF </a
-                >
+                    >Conversor a PDF
+                </a>
             </li>
-            <a href="/archivo.pdf" download class="hora-button">Descargar PDF</a>
-
- 
-
-
-        
-        <form
-            action="https://wa.me/NUMERO_DE_TELÉFONO"
-            method="post"
-            target="_blank">
-            <label for="message"
-                >Aqui vc pode enviar as atualizaçoes diretamente pro meu zap, é
-                so escrever aqui e apertar o botão</label
-            >
-            <textarea id="message" name="message" required></textarea>
-
-            <input type="submit" value="Enviar mensaje de WhatsApp" />
-        </form>
+        </ol>
     </body>
 </html>

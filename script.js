@@ -41,4 +41,10 @@ function downloadPrograma() {
   document.body.removeChild(link);
 }
 
+var checkbox = document.getElementsByName('item')[indice];
+if (checkbox.checked) {
+    // código a ejecutar si el checkbox está seleccionado
+} else {
+    // código a ejecutar si el checkbox no está seleccionado
+}
 
