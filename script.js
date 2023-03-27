@@ -15,3 +15,30 @@ function toggleLista() {
     lista.style.display = "none";
   }
 }
+
+
+
+function generatePDF() {
+    var doc = new jsPDF();
+    var source = window.document.getElementsByTagName("body")[0];
+    doc.fromHTML(
+        source,
+        15,
+        15,
+        {
+            'width': 180
+        });
+
+    doc.save('archivo.pdf');
+}
+
+function downloadPrograma() {
+  var link = document.createElement("a");
+  link.download = "archivo.pdf";
+  link.href = "/archivo.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+
