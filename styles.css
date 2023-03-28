@@ -1,18 +1,27 @@
 .title {
     color: green;
 }
+h1{
+  text-align: center;
+}
+h1 + p {
+  margin-top: 1em;
+}
+h4{
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+
 /* Estilos generales */
 body {
 	font-family: Arial, sans-serif;
 }
-h1 {
-	text-align: center;
-}
-p {
-	text-align: center;
-}
+
+
 ol {
-	margin-left: 20px;
+	margin: 20px;
 }
 
 /* Estilos para botones */
@@ -46,19 +55,13 @@ ol {
 }
 
 /* Apply a sans-serif font to the whole page */
-body {
-  font-family: sans-serif;
-}
+
 
 /* Center the page title */
-h1 {
-  text-align: center;
-}
+
 
 /* Add some spacing between the page title and the following paragraph */
-h1 + p {
-  margin-top: 1em;
-}
+
 
 /* Style the buttons used to toggle the dropdown menus */
 .hora-button {

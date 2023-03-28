@@ -10,24 +10,12 @@ body {
     font-family: 'Mi Fuente', sans-serif;
     background-color: black;
     color: white;
-}
-
-body {
     font-family: 'Roboto', sans-serif;
-}
-body {
     font-family: 'Lato', sans-serif;
 }
 
 
-form {
-    text-align: center;
-  max-width: 500px;
-  margin: auto;
-  padding: 20px;
-  background-color: #f2f2f2;
-  border-radius: 5px;
-}
+
 
 label {
   font-size: 18px;
