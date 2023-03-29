@@ -22,3 +22,11 @@ function toggleLista() {
 
 
 
+function extraerTexto() {
+  fetch('https://www.ejemplo.com') // Reemplaza con la URL de la página que quieres extraer el texto
+    .then(response => response.text())
+    .then(data => {
+      const contenido = document.getElementById('contenido');
+      contenido.innerHTML = data;
+    });
+}
