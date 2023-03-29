@@ -5,17 +5,19 @@
         <title>Organización de evento hora por hora</title>
 
         <link rel="stylesheet" type="text/css" href="styles.css" />
-        <link rel="stylesheet" type="text/css" href="stylee.css" />
+
         <link
             href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
             rel="stylesheet" />
         <link
             href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
             rel="stylesheet" />
+    <script src="html2pdf.bundle.min.js"></script>
 
         <script src="script.js"></script>
     </head>
     <body>
+
         <h1>Programa del culto sabatico</h1>
         <h4>
             Este conteúdo é exclusivo para administradores e contém ferramentas
@@ -248,6 +250,14 @@
                     > <input type="checkbox" id="item-23" name="item" value="valor del item">Domingo | clik Aqui</a
                 >
             </li>
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a PDF</title>
+    <!-- El script de la librería-->
+    <script src="html2pdf.bundle.min.js"></script>
+    <!--Nuestro script, que se encarga de crear el PDF usando la librería-->
+    <script src="script.js"></script>
+    <!-- Algunos estilos -->
 
        <li onclick="document.getElementById('item-24').checked = true;">
     
@@ -258,6 +268,18 @@
                     ><input type="checkbox" id="item-24" name="item" value="valor del item">Conversor a PDF
                 </a>
             </li>
+             <li >
+    
+                <a
+                    id="btnCrearPdf"
+                    class="hora-button"
+                    >Baixar programa | pdf
+                </a>
+            </li>
+
         </ol>
+                   
+
     </body>
+   
 </html>
