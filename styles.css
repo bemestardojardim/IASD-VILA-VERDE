@@ -20,6 +20,11 @@ body {
     background-color: #E0FFFF ;
 }
 
+#boton-secreto {
+  display: none;
+}
+
+
 
 ol {
 	margin: 20px;
