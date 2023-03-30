@@ -71,3 +71,10 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(err => console.log(err));
     });
 });
+
+
+document.addEventListener("keydown", function(event) {
+  if ((event.keyCode === 83 && event.ctrlKey) || (event.keyCode === 77 && event.ctrlKey)) { // La combinación de teclas es "Ctrl+S" o "Ctrl+M"
+    document.getElementById("boton-secreto").click(); // Hace clic en el botón secreto
+  }
+});
