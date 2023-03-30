@@ -80,3 +80,26 @@ document.addEventListener("keydown", function(event) {
 });
 
 
+
+
+
+
+const $btnAgregar = document.getElementById("btnAgregar");
+const $lista = document.getElementById("lista");
+
+$btnAgregar.addEventListener("click", () => {
+  $lista.style.display = "block";
+  const $input = document.createElement("input");
+  $input.type = "text";
+  $input.placeholder = "Escribe un elemento de la lista";
+  const $btnEliminar = document.createElement("button");
+  $btnEliminar.innerText = "Eliminar";
+  $btnEliminar.classList.add("btnEliminar");
+  $btnEliminar.addEventListener("click", () => {
+    $input.remove();
+    $btnEliminar.remove();
+  });
+  $lista.appendChild($input);
+  $lista.appendChild($btnEliminar);
+});
+

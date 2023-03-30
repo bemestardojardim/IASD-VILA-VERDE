@@ -5,6 +5,7 @@
         <title>Organización de evento hora por hora</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="html2pdf.bundle.min.js"></script>
 
        
 
@@ -18,7 +19,7 @@
         <script src="script.js"></script>
     </head>
     <body>
-        <h1 style="text-align: center">Programa del culto Quarta Feira</h1>
+        <h1 style="text-align: center">Programa do culto Quarta Feira</h1>
         <h4 style="text-align: center">
         </h4>
         <p style="text-align: center">
@@ -58,6 +59,7 @@
                     > <input type="checkbox" id="item-4" name="item" value="valor del item">
 Pedidos de Oração                </a>
             </li>
+            
             <li onclick="document.getElementById('item-5').checked = true;">
 
     
@@ -117,12 +119,12 @@ fim                </a>
             </li>
             
 
-           <li onclick="document.getElementById('item-11').checked = true;">
+           <li onclick="document.getElementById('item-10').checked = true;">
     
                 <a
                     id="btnCrearPdf"
                     class="hora-button"
-                    ><input type="checkbox" id="item-11" name="item" value="valor del item"> Programa | pdf
+                    ><input type="checkbox" id="item-10" name="item" value="valor del item"> Programa | pdf
                 </a>
             </li>
         </ol>
