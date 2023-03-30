@@ -57,12 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     quality: 0.98
                 },
                 html2canvas: {
-                    scale: 1, // Escala menor para generar un PDF más ligero
+                    scale: 2, // Escala menor para generar un PDF más ligero
                     letterRendering: true,
                 },
                 jsPDF: {
                     unit: "in",
-                    format: "a4", // Cambiamos el formato a a4
+                    format: "C5", // Cambiamos el formato a a4
                     orientation: 'portrait' // Cambiamos la orientación a portrait
                 }
             })
