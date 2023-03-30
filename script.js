@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 jsPDF: {
                     unit: "in",
-                    format: "C5", // Cambiamos el formato a a4
+                    format: "B5", // Cambiamos el formato a a4
                     orientation: 'portrait' // Cambiamos la orientación a portrait
                 }
             })
