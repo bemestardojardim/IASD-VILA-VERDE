@@ -78,3 +78,20 @@ document.addEventListener("keydown", function(event) {
     document.getElementById("boton-secreto").click(); // Hace clic en el botón secreto
   }
 });
+
+
+<button id="boton-secreto">Botón secreto</button>
+
+<script>
+document.addEventListener("touchstart", function(event) {
+  if (event.touches.length === 2) { // Comprueba si se han tocado dos puntos de la pantalla
+    event.preventDefault(); // Evita que se realice la acción predeterminada del evento touchstart
+  }
+});
+
+document.addEventListener("touchend", function(event) {
+  if (event.changedTouches.length === 2) { // Comprueba si se han dejado de tocar dos puntos de la pantalla
+    document.getElementById("boton-secreto").click(); // Hace clic en el botón secreto
+  }
+});
+</script>
