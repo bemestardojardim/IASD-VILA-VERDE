@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Organización de evento hora por hora</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="stylee.css" />
+    <script src="html2pdf.bundle.min.js"></script>
+
+       
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet" />
+
+        <script src="script.js"></script>
+    </head>
+    <body>
+     <h1 style="text-align: center; font-size: 2.5em; font-family: 'Open Sans', sans-serif; color: #006699; text-transform: uppercase; letter-spacing: 0.2em; border-bottom: 3px solid #006699">Semana santa</h1>
+        
+
+<style>
+    .whatsapp-button {
+        background-color: #25D366;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        display: block;
+    margin: 0 auto;
+        
+    }
+</style>
+
+        <h4 style="text-align: center">
+        </h4>
+        <p style="text-align: center">
+            A continuación se presenta o programa do culto de Semana Santa:
+        </p>
+
+        <ol>
+                <li onclick="document.getElementById('item-1').checked = true;">
+   
+  <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fondo.html" target="_blank" class="hora-button"> <input type="checkbox" id="item-1" name="item" value="valor del item">
+    Musica de fondo Instrumental | Youtube
+  </a>
+</li> <li onclick="document.getElementById('item-2').checked = true;">
+   
+                <a
+                    class="hora-button"
+                    > <input type="checkbox" id="item-2" name="item" value="valor del item">
+                    Oraçao 
+                </a>
+            </li>
+            
+            <li onclick="document.getElementById('item-2').checked = true;">
+
+    
+         <a onclick="toggleLista()" class="hora-button">    <input type="checkbox" id="item-2" name="item" value="valor del item">
+    <b>Louvor:</b> Semana Santa
+  </a>
+    <div id="lista" style="display: none">
+        <li onclick="document.getElementById('item-30').checked = true;">
+ <button><a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor1.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-30" name="item" value="valor del item">Jesus Venceu </a >|</button></li>
+
+         <li onclick="document.getElementById('item-31').checked = true;">
+ <button><a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor2.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-31" name="item" value="valor del item">Tomou meu lugar </a >|</button></li>
+  <li onclick="document.getElementById('item-32').checked = true;">
+ <button><a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor3.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-32" name="item" value="valor del item">Inexplicavel </a >|</button></li>
+    </div>
+</li>
+
+            
+  
+             <li onclick="document.getElementById('item-4').checked = true;">
+   
+                <a
+                    class="hora-button"
+                    > <input type="checkbox" id="item-4" name="item" value="valor del item">
+Pedidos de Oração                </a>
+            </li>
+            
+            <li onclick="document.getElementById('item-5').checked = true;">
+
+    
+         <a onclick="toggleLista()" class="hora-button">    <input type="checkbox" id="item-5" name="item" value="valor del item">
+    Louvor 
+  </a>
+    <div id="lista" style="display: none">
+        <button>Louvor 1</button>
+        <button>Louvor 2</button>
+        <button>Louvor 3</button>
+    </div>
+</li>
+             <li onclick="document.getElementById('item-6').checked = true;">
+   
+                <a
+                    class="hora-button"
+                    > <input type="checkbox" id="item-6" name="item" value="valor del item">
+                    Oraçao Final
+                </a>
+            </li>
+             <li onclick="document.getElementById('item-7').checked = true;">
+   
+                <a
+                    class="hora-button"
+                    > <input type="checkbox" id="item-7" name="item" value="valor del item">
+fim                </a>
+            </li>
+           
+            <h1>Utilidades</h1>
+
+           <li onclick="document.getElementById('item-8').checked = true;">
+   
+                <a
+                    href="https://rdrop.link/"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-8" name="item" value="valor del item">Transferir arquivos pro computador | clik Aqui</a
+                >
+            </li>
+             <li onclick="document.getElementById('item-9').checked = true;">
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/index.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-9" name="item" value="valor del item">Sabado | clik Aqui</a
+                >
+            </li>
+          <li onclick="document.getElementById('item-10').checked = true;">
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/domingo.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-10" name="item" value="valor del item">Domingo | clik Aqui</a
+                >
+            </li>
+            
+
+           <li onclick="document.getElementById('item-10').checked = true;">
+    
+                <a
+                    id="btnCrearPdf"
+                    class="hora-button"
+                    ><input type="checkbox" id="item-10" name="item" value="valor del item"> Programa | pdf
+                </a>
+            </li>
+        </ol>
+    </body>
+</html>
