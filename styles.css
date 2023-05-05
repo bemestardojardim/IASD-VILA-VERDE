@@ -109,6 +109,8 @@ ol {
 
 
 /* Style the dropdown menus */
+#lista2,
+#lista3,
 #lista,
 #louvor {
   display: none;
@@ -121,6 +123,8 @@ ol {
 
 /* Show the dropdown menus when the corresponding button is clicked */
 #lista.show,
+#lista3.show,
+#lista2.show,
 #louvor.show {
   display: block;
 }
@@ -144,6 +148,10 @@ ol {
             .hora-button:hover {
                 background-color: #005c99;
             }
+            
+            .hora-butto:hover {
+                background-color: #005c99;
+            }
 
             /* Estilos para las listas de botones */
             .lista {
@@ -152,6 +160,27 @@ ol {
             }
 
             .lista button {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+             .lista3 {
+                display: none;
+                padding-left: 20px;
+            }
+
+            .lista3 button {
+                display: block;
+                margin-bottom: 5px;
+            }
+            
+            
+                        .lista2 {
+                display: none;
+                padding-left: 20px;
+            }
+
+            .lista2 button {
                 display: block;
                 margin-bottom: 5px;
             }

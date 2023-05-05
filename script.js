@@ -17,6 +17,43 @@ function toggleLista() {
 }
 
 
+
+
+
+
+function toggleLista3() {
+  var lista3 = document.getElementById("lista3");
+  if (lista3.style.display === "none") {
+    lista3.style.display = "block";
+  } else {
+    lista3.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+function toggleLista2() {
+  var lista2 = document.getElementById("lista2");
+  if (lista2.style.display === "none") {
+    lista2.style.display = "block";
+  } else {
+    lista2.style.display = "none";
+  }
+}
+
+
+
+
+
+
+
+
+
+
 /*
 
   ____          _____               _ _           _       
