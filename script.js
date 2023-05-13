@@ -19,7 +19,14 @@ function toggleLista() {
 
 
 
-
+function toggleLouvorr() {
+  var louvorr = document.getElementById("louvorr");
+  if (louvorr.style.display === "none") {
+    louvorr.style.display = "block";
+  } else {
+    louvorr.style.display = "none";
+  }
+}
 
 function toggleLista3() {
   var lista3 = document.getElementById("lista3");
@@ -33,7 +40,14 @@ function toggleLista3() {
 
 
 
-
+function toggleLouvorrr() {
+  var louvor = document.getElementById("louvorrr");
+  if (louvorrr.style.display === "none") {
+    louvorrr.style.display = "block";
+  } else {
+    louvorrr.style.display = "none";
+  }
+}
 
 
 function toggleLista2() {
@@ -46,7 +60,23 @@ function toggleLista2() {
 }
 
 
+function toggleLouvor999() {
+  var louvor = document.getElementById("louvor999");
+  if (louvor999.style.display === "none") {
+    louvor999.style.display = "block";
+  } else {
+    louvor999.style.display = "none";
+  }
+}
 
+function toggleLista4() {
+  var lista = document.getElementById("lista4");
+  if (lista4.style.display === "none") {
+    lista4.style.display = "block";
+  } else {
+    lista4.style.display = "none";
+  }
+}
 
 
 
