@@ -111,6 +111,8 @@ ol {
 /* Style the dropdown menus */
 #lista2,
 #lista3,
+#lista4,
+#lista5,
 #lista,
 #louvor {
   display: none;
@@ -124,7 +126,9 @@ ol {
 /* Show the dropdown menus when the corresponding button is clicked */
 #lista.show,
 #lista3.show,
+#lista4.show,
 #lista2.show,
+#lista5.show,
 #louvor.show {
   display: block;
 }
@@ -168,6 +172,10 @@ ol {
                 display: none;
                 padding-left: 20px;
             }
+                         .lista4 {
+                display: none;
+                padding-left: 20px;
+            }
 
             .lista3 button {
                 display: block;
@@ -181,6 +189,24 @@ ol {
             }
 
             .lista2 button {
+                display: block;
+                margin-bottom: 5px;
+            }
+              .lista4 {
+                display: none;
+                padding-left: 20px;
+            }
+
+            .lista4 button {
+                display: block;
+                margin-bottom: 5px;
+            }
+                          .lista5 {
+                display: none;
+                padding-left: 20px;
+            }
+
+            .lista5 button {
                 display: block;
                 margin-bottom: 5px;
             }
