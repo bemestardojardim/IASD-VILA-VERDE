@@ -48,7 +48,7 @@ ol {
 	background-color: purple;
 	color: white;
 	padding: 10px 20px;
-	text-align: center;
+	text-align: left;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 18px;
@@ -67,7 +67,7 @@ ol {
 	background-color: pink;
 	color: black;
 	padding: 10px 20px;
-	text-align: center;
+	text-align: left;
 	text-decoration: none;
 	display: inline-block;
 	font-size: 18px;
