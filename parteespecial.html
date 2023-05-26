@@ -40,56 +40,139 @@
     button:hover {
       background-color: #45a049;
     }
+
+    /* Estilos personalizados */
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header h3 {
+      font-size: 16px;
+      color: #666666;
+      margin-top: 10px;
+    }
+
+    .louvor-section {
+      margin-bottom: 30px;
+    }
+
+    .louvor-section h2 {
+      font-size: 20px;
+      margin: 10px 0;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+    }
+
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    .button-container {
+      text-align: center;
+    }
+
+    .button-container button {
+      font-size: 18px;
+      padding: 12px 24px;
+    }
   </style>
 </head>
 <body>
-  <h1>Formulario de canciones</h1>
-  
-  <h2>Louvor 1</h2>
-  <label for="louvor1-1">Louvor 1:</label>
-  <input type="text" id="louvor1-1" name="louvor1-1"><br>
+  <div class="container">
+    <div class="header">
+      <h1>Formulario de canciones</h1>
+      <h3>Bem-vinda à nossa igreja! Estamos muito felizes por você vir cantar uma parte especial em nosso culto.</h3>
+    </div>
 
-  <label for="louvor1-2">Link:</label>
-  <input type="text" id="louvor1-2" name="louvor1-2"><br>
+    <div class="louvor-section">
+      <h2>Louvor 1</h2>
+      <div class="form-group">
+        <label for="louvor1-1">Louvor 1:</label>
+        <input type="text" id="louvor1-1" name="louvor1-1">
+      </div>
 
-  <h2>Louvor 2</h2>
-  <label for="louvor2-1">Louvor 2:</label>
-  <input type="text" id="louvor2-1" name="louvor2-1"><br>
+      <div class="form-group">
+        <label for="louvor1-2">Link:</label>
+        <input type="text" id="louvor1-2" name="louvor1-2">
+      </div>
+    </div>
 
-  <label for="louvor2-2">Link:</label>
-  <input type="text" id="louvor2-2" name="louvor2-2"><br>
+    <div class="louvor-section">
+      <h2>Louvor 2</h2>
+      <div class="form-group">
+        <label for="louvor2-1">Louvor 2:</label>
+        <input type="text" id="louvor2-1" name="louvor2-1">
+      </div>
 
-  <h2>Louvor 3</h2>
-  <label for="louvor3-1">Louvor 3:</label>
-  <input type="text" id="louvor3-1" name="louvor3-1"><br>
+      <div class="form-group">
+        <label for="louvor2-2">Link:</label>
+        <input type="text" id="louvor2-2" name="louvor2-2">
+      </div>
+    </div>
 
-  <label for="louvor3-2">Link:</label>
-  <input type="text" id="louvor3-2" name="louvor3-2"><br>
+    <div class="louvor-section">
+      <h2>Louvor 3</h2>
+      <div class="form-group">
+        <label for="louvor3-1">Louvor 3:</label>
+        <input type="text" id="louvor3-1" name="louvor3-1">
+      </div>
 
-  <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      <div class="form-group">
+        <label for="louvor3-2">Link:</label>
+        <input type="text" id="louvor3-2" name="louvor3-2">
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+    </div>
+  </div>
 
   <script>
-  function enviarWhatsApp() {
-    // Obtener los valores de los campos del formulario
-    var louvor1Verse1 = document.getElementById("louvor1-1").value;
-    var louvor1Verse2 = document.getElementById("louvor1-2").value;
-    var louvor2Verse1 = document.getElementById("louvor2-1").value;
-    var louvor2Verse2 = document.getElementById("louvor2-2").value;
-    var louvor3Verse1 = document.getElementById("louvor3-1").value;
-    var louvor3Verse2 = document.getElementById("louvor3-2").value;
+    function enviarWhatsApp() {
+      // Obtener los valores de los campos del formulario
+      var louvor1Verse1 = document.getElementById("louvor1-1").value;
+      var louvor1Verse2 = document.getElementById("louvor1-2").value;
+      var louvor2Verse1 = document.getElementById("louvor2-1").value;
+      var louvor2Verse2 = document.getElementById("louvor2-2").value;
+      var louvor3Verse1 = document.getElementById("louvor3-1").value;
+      var louvor3Verse2 = document.getElementById("louvor3-2").value;
 
-    // Crear la URL de WhatsApp con los parámetros prellenados
-    var url = "https://api.whatsapp.com/send?phone=+5522998883448&text=";
-    var mensaje = "Louvor 1:\nVerso 1: " + louvor1Verse1 + "\nVerso 2: " + louvor1Verse2 + "\n\n";
-    mensaje += "Louvor 2:\nVerso 1: " + louvor2Verse1 + "\nVerso 2: " + louvor2Verse2 + "\n\n";
-    mensaje += "Louvor 3:\nVerso 1: " + louvor3Verse1 + "\nVerso 2: " + louvor3Verse2;
-    var mensajeCodificado = encodeURIComponent(mensaje);
-    url += mensajeCodificado;
+      // Crear la URL de WhatsApp con los parámetros prellenados
+      var url = "https://api.whatsapp.com/send?phone=+5522998883448&text=";
+      var mensaje = "Louvor 1:\nVerso 1: " + louvor1Verse1 + "\nVerso 2: " + louvor1Verse2 + "\n\n";
+      mensaje += "Louvor 2:\nVerso 1: " + louvor2Verse1 + "\nVerso 2: " + louvor2Verse2 + "\n\n";
+      mensaje += "Louvor 3:\nVerso 1: " + louvor3Verse1 + "\nVerso 2: " + louvor3Verse2;
+      var mensajeCodificado = encodeURIComponent(mensaje);
+      url += mensajeCodificado;
 
-    // Abrir WhatsApp con el mensaje prellenado
-    window.open(url);
-  }
+      // Abrir WhatsApp con el mensaje prellenado
+      window.open(url);
+    }
   </script>
 </body>
 </html>
-
