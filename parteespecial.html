@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulario de canciones</title>
+</head>
+<body>
+  <h1>Formulario de canciones</h1>
+  
+  <h2>Louvor 1</h2>
+  <label for="louvor1-1">louvor 1:</label>
+  <input type="text" id="louvor1-1" name="louvor1-1"><br>
+
+  <label for="louvor1-2">link:</label>
+  <input type="text" id="louvor1-2" name="louvor1-2"><br>
+
+  <h2>Louvor 2</h2>
+  <label for="louvor2-1">louvor 2:</label>
+  <input type="text" id="louvor2-1" name="louvor2-1"><br>
+
+  <label for="louvor2-2">link :</label>
+  <input type="text" id="louvor2-2" name="louvor2-2"><br>
+
+  <h2>Louvor 3</h2>
+  <label for="louvor3-1">louvor 3:</label>
+  <input type="text" id="louvor3-1" name="louvor3-1"><br>
+
+  <label for="louvor3-2">link:</label>
+  <input type="text" id="louvor3-2" name="louvor3-2"><br>
+
+  <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+
+  <script>
+  function enviarWhatsApp() {
+    // Obtener los valores de los campos del formulario
+    var louvor1Verse1 = document.getElementById("louvor1-1").value;
+    var louvor1Verse2 = document.getElementById("louvor1-2").value;
+    var louvor2Verse1 = document.getElementById("louvor2-1").value;
+    var louvor2Verse2 = document.getElementById("louvor2-2").value;
+    var louvor3Verse1 = document.getElementById("louvor3-1").value;
+    var louvor3Verse2 = document.getElementById("louvor3-2").value;
+
+    // Crear la URL de WhatsApp con los parámetros prellenados
+    var url = "https://api.whatsapp.com/send?phone=+5522998883448&text=";
+    var mensaje = "Louvor 1:\nVerso 1: " + louvor1Verse1 + "\nVerso 2: " + louvor1Verse2 + "\n\n";
+    mensaje += "Louvor 2:\nVerso 1: " + louvor2Verse1 + "\nVerso 2: " + louvor2Verse2 + "\n\n";
+    mensaje += "Louvor 3:\nVerso 1: " + louvor3Verse1 + "\nVerso 2: " + louvor3Verse2;
+    var mensajeCodificado = encodeURIComponent(mensaje);
+    url += mensajeCodificado;
+
+    // Abrir WhatsApp con el mensaje prellenado
+    window.open(url);
+  }
+</script>
+
+</body>
+</html>
+
