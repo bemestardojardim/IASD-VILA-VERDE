@@ -23,7 +23,7 @@
     }
 
     input[type="text"] {
-      width: 300px;
+      width: 100%;
       padding: 5px;
       margin-bottom: 10px;
     }
@@ -99,6 +99,23 @@
       font-size: 18px;
       padding: 12px 24px;
     }
+
+    /* Estilos responsivos */
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+
+      .form-group input[type="text"] {
+        width: calc(100% - 20px);
+      }
+
+      .button-container button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -111,7 +128,7 @@
     <div class="louvor-section">
       <h2>Louvor 1</h2>
       <div class="form-group">
-        <label for="louvor1-1">Louvor 1:</label>
+        <label for="louvor1-1">Nome:</label>
         <input type="text" id="louvor1-1" name="louvor1-1">
       </div>
 
@@ -124,7 +141,7 @@
     <div class="louvor-section">
       <h2>Louvor 2</h2>
       <div class="form-group">
-        <label for="louvor2-1">Louvor 2:</label>
+        <label for="louvor2-1">Nome:</label>
         <input type="text" id="louvor2-1" name="louvor2-1">
       </div>
 
@@ -137,7 +154,7 @@
     <div class="louvor-section">
       <h2>Louvor 3</h2>
       <div class="form-group">
-        <label for="louvor3-1">Louvor 3:</label>
+        <label for="louvor3-1">Nome:</label>
         <input type="text" id="louvor3-1" name="louvor3-1">
       </div>
 
@@ -163,7 +180,7 @@
       var louvor3Verse2 = document.getElementById("louvor3-2").value;
 
       // Crear la URL de WhatsApp con los parámetros prellenados
-      var url = "https://api.whatsapp.com/send?phone=+5522998883448&text=";
+      var url = "https://api.whatsapp.com/send?phone=+5522998883449&text=";
       var mensaje = "Louvor 1:\nVerso 1: " + louvor1Verse1 + "\nVerso 2: " + louvor1Verse2 + "\n\n";
       mensaje += "Louvor 2:\nVerso 1: " + louvor2Verse1 + "\nVerso 2: " + louvor2Verse2 + "\n\n";
       mensaje += "Louvor 3:\nVerso 1: " + louvor3Verse1 + "\nVerso 2: " + louvor3Verse2;
