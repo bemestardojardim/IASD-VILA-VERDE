@@ -2,29 +2,68 @@
 <html>
 <head>
   <title>Formulario de canciones</title>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      color: #333333;
+    }
+
+    h2 {
+      color: #666666;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 300px;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
   <h1>Formulario de canciones</h1>
   
   <h2>Louvor 1</h2>
-  <label for="louvor1-1">louvor 1:</label>
+  <label for="louvor1-1">Louvor 1:</label>
   <input type="text" id="louvor1-1" name="louvor1-1"><br>
 
-  <label for="louvor1-2">link:</label>
+  <label for="louvor1-2">Link:</label>
   <input type="text" id="louvor1-2" name="louvor1-2"><br>
 
   <h2>Louvor 2</h2>
-  <label for="louvor2-1">louvor 2:</label>
+  <label for="louvor2-1">Louvor 2:</label>
   <input type="text" id="louvor2-1" name="louvor2-1"><br>
 
-  <label for="louvor2-2">link :</label>
+  <label for="louvor2-2">Link:</label>
   <input type="text" id="louvor2-2" name="louvor2-2"><br>
 
   <h2>Louvor 3</h2>
-  <label for="louvor3-1">louvor 3:</label>
+  <label for="louvor3-1">Louvor 3:</label>
   <input type="text" id="louvor3-1" name="louvor3-1"><br>
 
-  <label for="louvor3-2">link:</label>
+  <label for="louvor3-2">Link:</label>
   <input type="text" id="louvor3-2" name="louvor3-2"><br>
 
   <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
@@ -50,8 +89,7 @@
     // Abrir WhatsApp con el mensaje prellenado
     window.open(url);
   }
-</script>
-
+  </script>
 </body>
 </html>
 
