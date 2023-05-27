@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
   
   <title>Formulario de canciones</title>
   <style>
@@ -134,12 +134,12 @@
     <div class="louvor-section">
       <h2>Louvor 1</h2>
       <div class="form-group">
-        <label for="louvor1-1">Nome:</label>
+        <label for="louvor1-1">Nome do louvor:</label>
         <input type="text" id="louvor1-1" name="louvor1-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor1-2">Link:</label>
+        <label for="louvor1-2">Link de YouTube-pista: (Opcional)</label>
         <input type="text" id="louvor1-2" name="louvor1-2">
       </div>
     </div>
@@ -147,12 +147,12 @@
     <div class="louvor-section">
       <h2>Louvor 2</h2>
       <div class="form-group">
-        <label for="louvor2-1">Nome:</label>
+        <label for="louvor2-1">Nome do louvor:</label>
         <input type="text" id="louvor2-1" name="louvor2-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor2-2">Link:</label>
+        <label for="louvor2-2">Link de YouTube: (opcional)</label>
         <input type="text" id="louvor2-2" name="louvor2-2">
       </div>
     </div>
@@ -160,12 +160,12 @@
     <div class="louvor-section">
       <h2>Louvor 3</h2>
       <div class="form-group">
-        <label for="louvor3-1">Nome:</label>
+        <label for="louvor3-1">Nome do louvor:</label>
         <input type="text" id="louvor3-1" name="louvor3-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor3-2">Link:</label>
+        <label for="louvor3-2">Link de YouTube- pista: (Opcional)</label>
         <input type="text" id="louvor3-2" name="louvor3-2">
       </div>
     </div>
@@ -187,9 +187,9 @@
 
       // Crear la URL de WhatsApp con los parámetros prellenados
       var url = "https://api.whatsapp.com/send?phone=+5522998883449&text=";
-      var mensaje = "Louvor 1:\nVerso 1: " + louvor1Verse1 + "\nVerso 2: " + louvor1Verse2 + "\n\n";
-      mensaje += "Louvor 2:\nVerso 1: " + louvor2Verse1 + "\nVerso 2: " + louvor2Verse2 + "\n\n";
-      mensaje += "Louvor 3:\nVerso 1: " + louvor3Verse1 + "\nVerso 2: " + louvor3Verse2;
+      var mensaje = "Louvor 1:\nNome : " + louvor1Verse1 + "\nlink: " + louvor1Verse2 + "\n\n";
+      mensaje += "Louvor 2:\nNome: " + louvor2Verse1 + "\nLink: " + louvor2Verse2 + "\n\n";
+      mensaje += "Louvor 3:\nNome: " + louvor3Verse1 + "\nLink: " + louvor3Verse2;
       var mensajeCodificado = encodeURIComponent(mensaje);
       url += mensajeCodificado;
 
