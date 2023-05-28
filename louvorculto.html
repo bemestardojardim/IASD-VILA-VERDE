@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário de Momento de Louvor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9c4b1; /* Fondo salmón */
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333333;
+      text-align: center;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    .form-section {
+      margin-bottom: 20px;
+    }
+
+    .form-section-title {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .large-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .text-toggle-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+  <script>
+    function toggleLargeText() {
+      var formContainer = document.getElementById("form-container");
+      formContainer.classList.toggle("large-text");
+    }
+
+    function enviarFormulario() {
+      var hino1 = document.getElementById("hino1").value;
+      var hino2 = document.getElementById("hino2").value;
+      var hino3 = document.getElementById("hino3").value;
+      var musicaEspecial = document.getElementById("musica_especial").value;
+      var hinoInicial = document.getElementById("hino_inicial").value;
+      var musicaEspecial = document.getElementById("musica_especial").value;
+      var hinoFinal = document.getElementById("hino_final").value;
+
+      var mensaje = "Hino 1: " + hino1 + "\n" +
+                    "Hino 2: " + hino2 + "\n" +
+                    "Hino 3: " + hino3 + "\n" +
+                    "Música Especial: " + musicaEspecial + "\n" +
+                    "Hino Inicial: " + hinoInicial + "\n" +
+                    "Música Especial: " + musicaEspecial + "\n" +
+                    "Hino Final: " + hinoFinal;
+
+      var numeroWhatsApp = "22998883449";
+      var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + numeroWhatsApp + "&text=" + encodeURIComponent(mensaje);
+      
+      window.open(urlWhatsApp);
+    }
+  </script>
+</head>
+<body>
+  <h1>Formulário de Momento de Louvor</h1>
+  <div class="text-toggle-container">
+    <button type="button" onclick="toggleLargeText()">Alterar Tamanho do Texto</button>
+  </div>
+  <div id="form-container" class="form-container">
+    <p class="light-text">Este formulário destina-se ao momento de louvor durante o culto.</p>
+    <div class="form-section">
+      <h3 class="form-section-title">Momento de Louvor</h3>
+      <label for="hino1">Hino 1:</label><br>
+      <input type="text" id="hino1" name="hino1"><br><br>
+
+      <label for="hino2">Hino 2:</label><br>
+      <input type="text" id="hino2" name="hino2"><br><br>
+
+      <label for="hino3">Hino 3:</label><br>
+      <input type="text" id="hino3" name="hino3"><br><br>
+    </div>
+
+    <label for="musica_especial">Música Especial:</label><br>
+    <input type="text" id="musica_especial" name="musica_especial"><br><br>
+
+    <div class="form-section">
+      <h3 class="form-section-title">Hinos Inicial e Final</h3>
+      <label for="hino_inicial">Hino Inicial:</label><br>
+      <input type="text" id="hino_inicial" name="hino_inicial"><br><br>
+
+      <label for="hino_final">Hino Final:</label><br>
+      <input type="text" id="hino_final" name="hino_final"><br><br>
+    </div>
+
+    <button type="button" onclick="enviarFormulario()">Enviar por WhatsApp</button>
+  </div>
+</body>
+</html>

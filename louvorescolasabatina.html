@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário de Louvor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9c4b1; /* Fondo salmón */
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #333333;
+      text-align: center;
+    }
+
+    .form-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      color: #333333;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .large-text {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333333;
+    }
+
+    .text-toggle-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .large-text .light-text {
+      color: #666666;
+    }
+  </style>
+  <script>
+    function enviarFormulario() {
+      var louvorAntesHinoInicial = document.getElementById("louvor_antes_hino_inicial").value;
+      var hinoInicial = document.getElementById("hino_inicial").value;
+      var hinoFinal = document.getElementById("hino_final").value;
+      var encargadosLouvor = document.getElementById("encargados_louvor").value;
+
+      var mensaje = "Louvor antes del hino inicial: " + louvorAntesHinoInicial + "\n" +
+                    "Hino inicial: " + hinoInicial + "\n" +
+                    "Hino final: " + hinoFinal + "\n" +
+                    "Encargados de Louvor: " + encargadosLouvor;
+
+      var numeroWhatsApp = "22998883449";
+      var urlWhatsApp = "https://api.whatsapp.com/send?phone=" + numeroWhatsApp + "&text=" + encodeURIComponent(mensaje);
+      
+      window.open(urlWhatsApp);
+    }
+
+    function toggleLargeText() {
+      var formContainer = document.getElementById("form-container");
+      formContainer.classList.toggle("large-text");
+    }
+  </script>
+</head>
+<body>
+  <h1>Formulário de Louvor E.S</h1>
+  <div class="text-toggle-container">
+    <button type="button" onclick="toggleLargeText()">Alterar Tamanho do Texto</button>
+  </div>
+  <div id="form-container" class="form-container">
+    <p class="light-text">Este formulário destina-se a ajudar na organização do louvor.</p>
+    <p>Tema da pregação:</p>
+    <form>
+      <label for="louvor_antes_hino_inicial">Louvor antes do hino inicial:</label><br>
+      <input type="text" id="louvor_antes_hino_inicial" name="louvor_antes_hino_inicial"><br><br>
+
+      <label for="hino_inicial">Hino inicial:</label><br>
+      <input type="text" id="hino_inicial" name="hino_inicial"><br><br>
+
+      <label for="hino_final">Hino final:</label><br>
+      <input type="text" id="hino_final" name="hino_final"><br><br>
+
+      <label for="encargados_louvor">Encargados de Louvor:</label><br>
+      <input type="text" id="encargados_louvor" name="encargados_louvor"><br><br>
+
+      <button type="button" onclick="enviarFormulario()">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</body>
+</html>
