@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   
-  <title>Formulario de canciones</title>
+  <title>Formulário de músicas</title>
   <style>
-body {
+    body {
       background-color: #f2f2f2;
       font-family: Arial, sans-serif;
     }
-    
+
     .container {
       max-width: 600px;
       margin: 0 auto;
@@ -20,9 +20,6 @@ body {
       background-position: center;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
-
-    
 
     .header {
       text-align: center;
@@ -109,19 +106,19 @@ body {
 <body>
   <div class="container">
     <div class="header">
-      <h1>Formulario de canciones</h1>
-      <h3>Bem-vinda à nossa igreja! Estamos muito felizes por você vir cantar uma parte especial em nosso culto.</h3>
+      <h1>Formulário de músicas</h1>
+      <h3>Bem-vindo à nossa igreja! Estamos muito felizes por você vir cantar uma parte especial em nosso culto.</h3>
     </div>
 
     <div class="louvor-section">
       <h2>Louvor 1</h2>
       <div class="form-group">
-        <label for="louvor1-1">Nome do louvor:</label>
+        <label for="louvor1-1">Nome da música:</label>
         <input type="text" id="louvor1-1" name="louvor1-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor1-2">Link de YouTube-pista: (Opcional)</label>
+        <label for="louvor1-2">Link do YouTube - Pista: (Opcional)</label>
         <input type="text" id="louvor1-2" name="louvor1-2">
       </div>
     </div>
@@ -129,12 +126,12 @@ body {
     <div class="louvor-section">
       <h2>Louvor 2</h2>
       <div class="form-group">
-        <label for="louvor2-1">Nome do louvor:</label>
+        <label for="louvor2-1">Nome da música:</label>
         <input type="text" id="louvor2-1" name="louvor2-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor2-2">Link de YouTube-pista : (opcional)</label>
+        <label for="louvor2-2">Link do YouTube - Pista: (Opcional)</label>
         <input type="text" id="louvor2-2" name="louvor2-2">
       </div>
     </div>
@@ -142,24 +139,24 @@ body {
     <div class="louvor-section">
       <h2>Louvor 3</h2>
       <div class="form-group">
-        <label for="louvor3-1">Nome do louvor:</label>
+        <label for="louvor3-1">Nome da música:</label>
         <input type="text" id="louvor3-1" name="louvor3-1">
       </div>
 
       <div class="form-group">
-        <label for="louvor3-2">Link de YouTube- pista: (Opcional)</label>
+        <label for="louvor3-2">Link do YouTube - Pista: (Opcional)</label>
         <input type="text" id="louvor3-2" name="louvor3-2">
       </div>
     </div>
 
     <div class="button-container">
-      <button onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+      <button onclick="enviarWhatsApp()">Enviar pelo WhatsApp</button>
     </div>
   </div>
 
   <script>
     function enviarWhatsApp() {
-      // Obtener los valores de los campos del formulario
+      // Obtendo os valores dos campos do formulário
       var louvor1Verse1 = document.getElementById("louvor1-1").value;
       var louvor1Verse2 = document.getElementById("louvor1-2").value;
       var louvor2Verse1 = document.getElementById("louvor2-1").value;
@@ -167,15 +164,15 @@ body {
       var louvor3Verse1 = document.getElementById("louvor3-1").value;
       var louvor3Verse2 = document.getElementById("louvor3-2").value;
 
-      // Crear la URL de WhatsApp con los parámetros prellenados
+      // Criando a URL do WhatsApp com os parâmetros preenchidos
       var url = "https://api.whatsapp.com/send?phone=+5522998883449&text=";
-      var mensaje = "Louvor 1:\nNome : " + louvor1Verse1 + "\nlink: " + louvor1Verse2 + "\n\n";
-      mensaje += "Louvor 2:\nNome: " + louvor2Verse1 + "\nLink: " + louvor2Verse2 + "\n\n";
-      mensaje += "Louvor 3:\nNome: " + louvor3Verse1 + "\nLink: " + louvor3Verse2;
-      var mensajeCodificado = encodeURIComponent(mensaje);
-      url += mensajeCodificado;
+      var mensagem = "Louvor 1:\nNome: " + louvor1Verse1 + "\nLink: " + louvor1Verse2 + "\n\n";
+      mensagem += "Louvor 2:\nNome: " + louvor2Verse1 + "\nLink: " + louvor2Verse2 + "\n\n";
+      mensagem += "Louvor 3:\nNome: " + louvor3Verse1 + "\nLink: " + louvor3Verse2;
+      var mensagemCodificada = encodeURIComponent(mensagem);
+      url += mensagemCodificada;
 
-      // Abrir WhatsApp con el mensaje prellenado
+      // Abrindo o WhatsApp com a mensagem preenchida
       window.open(url);
     }
   </script>
