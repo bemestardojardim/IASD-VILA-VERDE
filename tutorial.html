@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formulário para Pregador Convidado - Tutorial Interactivo</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* Estilos CSS del tutorial */
+    .tutorial-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tutorial-text {
+      color: #ffffff;
+      font-size: 18px;
+      text-align: center;
+      max-width: 80%;
+    }
+  </style>
+  <script>
+    var tutorialSteps = [
+      {
+        field: "tema_pregacao",
+        text: "O campo 'Qual será o tema da pregação?' é onde você deve digitar o tema que será abordado durante a pregação."
+      },
+      {
+        field: "hino_inicial",
+        text: "O campo 'Hino de início' é onde você pode inserir o número ou o título do hino que será cantado no início do culto."
+      },
+      {
+        field: "hino_final",
+        text: "O campo 'Hino de encerramento' é onde você pode inserir o número ou o título do hino que será cantado no encerramento do culto."
+      },
+      {
+        field: "midia_sim",
+        text: "Selecione a opção 'Sim' se você tiver mídia para ser exibida na tela ou no som durante o culto. Caso contrário, selecione 'Não'."
+      },
+      {
+        field: "versao_biblia",
+        text: "O campo 'Qual é a versão da Bíblia que você usará?' é onde você pode informar a versão específica da Bíblia que será utilizada durante a pregação."
+      },
+      {
+        field: "button",
+        text: "Clique no botão 'Enviar por WhatsApp' para enviar as informações preenchidas através do WhatsApp."
+      }
+    ];
+
+    var currentStep = 0;
+
+    function startTutorial() {
+      showOverlay();
+      showTutorialText();
+      highlightField();
+    }
+
+    function showOverlay() {
+      var overlay = document.createElement("div");
+      overlay.classList.add("tutorial-overlay");
+      document.body.appendChild(overlay);
+    }
+
+    function showTutorialText() {
+      var tutorialText = document.createElement("div");
+      tutorialText.classList.add("tutorial-text");
+      tutorialText.innerHTML = tutorialSteps[currentStep].text;
+      document.body.appendChild(tutorialText);
+    }
+
+    function highlightField() {
+      var field = document.getElementById(tutorialSteps[currentStep].field);
+      field.classList.add("highlighted-field");
+    }
+
+    function nextStep() {
+      var overlay = document.querySelector(".tutorial-overlay");
+      var tutorialText = document.querySelector(".tutorial-text");
+      var field = document.getElementById(tutorialSteps[currentStep].field);
+
+      field.classList.remove("highlighted-field");
+      document.body.removeChild(overlay);
+      document.body.removeChild(tutorialText);
+
+      currentStep++;
+
+      if (currentStep < tutorialSteps.length) {
+        showOverlay();
+        showTutorialText();
+        highlightField();
+      }
+    }
+  </script>
+</head>
+<body onload="startTutorial()">
+  <h1>Formulário para Pregador Convidado</h1>
+  <div id="form-container" class="form-container">
+    <p class="light-text">Olá! Seja muito bem-vindo à Igreja VILA VERDE! Este formulário destina-se a ajudar na organização do programa. Por favor, preencha as informações abaixo:</p>
+    <form>
+      <label for="tema_pregacao">Qual será o tema da pregação?</label><br>
+      <input type="text" id="tema_pregacao" name="tema_pregacao"><br><br>
+
+      <label for="hino_inicial">Hino de início:</label><br>
+      <input type="text" id="hino_inicial" name="hino_inicial"><br><br>
+
+      <label for="hino_final">Hino de encerramento:</label><br>
+      <input type="text" id="hino_final" name="hino_final"><br><br>
+
+      <label>Tem mídia para passar na tela ou no som?</label><br>
+      <input type="radio" id="midia_sim" name="midia" value="Sim">
+      <label for="midia_sim">Sim</label>
+      <input type="radio" id="midia_nao" name="midia" value="Não">
+      <label for="midia_nao">Não</label><br><br>
+
+      <label for="versao_biblia">Qual é a versão da Bíblia que você usará?</label><br>
+      <input type="text" id="versao_biblia" name="versao_biblia"><br><br>
+
+      <button type="button" onclick="enviarFormulario()">Enviar por WhatsApp</button>
+    </form>
+  </div>
+</body>
+</html>
