@@ -1,354 +1,336 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Tienda Online</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      text-align: center;
-    }
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Organización de evento hora por hora</title>
 
-    h1 {
-      margin-top: 20px;
-      color: #333;
-    }
+        <link rel="stylesheet" type="text/css" href="styles.css" />
 
-    .category {
-      font-weight: bold;
-      margin-top: 30px;
-      font-size: 18px;
-      color: #333;
-    }
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+            rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+            rel="stylesheet" />
+    <script src="html2pdf.bundle.min.js"></script>
 
-    .product {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 15px;
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
+        <script src="script.js"></script>
+    </head>
+    <body>
 
-    .product img {
-      width: 80px;
-      height: 80px;
-      margin-right: 10px;
-      border-radius: 5px;
-    }
-
-    .product h3 {
-      margin: 0;
-      font-size: 16px;
-      color: #333;
-    }
-
-    .product p {
-      margin: 5px 0;
-      font-size: 14px;
-      color: #555;
-    }
-
-    .product button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #cart {
-      margin-top: 30px;
-      background-color: #fff;
-      border-radius: 5px;
-      padding: 20px;
-      text-align: left;
-    }
-
-    #cart h2 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    #cartItems {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    #cartItems li {
-      margin-bottom: 5px;
-      color: #555;
-    }
-
-    #total {
-      margin-top: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-
-    #checkoutForm {
-      margin-top: 20px;
-      text-align: left;
-    }
-
-    #checkoutForm input[type="text"] {
-      width: 100%;
-      padding: 5px;
-      margin-bottom: 10px;
-    }
-
-    #checkoutForm button {
-      background-color: #4caf50;
-      color: white;
-      border: none;
-      padding: 8px 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    #warning {
-      text-align: center;
-      color: #f44336;
-      font-size: 14px;
-      margin-top: 10px;
-    }
-  </style>
-</head>
-<body>
-  <h1>Tienda Online</h1>
-
-  <div id="categories"></div>
-
-  <div id="cart">
-    <h2>Carrito</h2>
-    <ul id="cartItems"></ul>
-    <p id="total">Total: $0.00</p>
-    <p id="warning"></p>
-    <button onclick="showCheckoutForm()" id="checkoutButton" disabled>Continuar al checkout</button>
-  </div>
-
-  <div id="checkoutForm" style="display: none;">
-    <h2>Checkout</h2>
-    <form>
-      <label for="name">Nombre:</label>
-      <input type="text" id="name" required>
-
-      <label for="address">Dirección de entrega:</label>
-      <input type="text" id="address" required>
-
-      <button type="button" onclick="sendWhatsAppMessage()">Enviar por WhatsApp</button>
-    </form>
-  </div>
-  
-  
-  
-  
-  <div id="checkoutForm" style="display: none;">
-    <h2>Checkout</h2>
-    <form>
-      <!-- Campos del formulario -->
-
-      <div id="checkoutForm">
-    <h2>Checkout</h2>
-    <form>
-      <!-- Campos del formulario -->
-
-      <button type="button" onclick="generateTicket()">Generar Ticket</button>
-    </form>
-  </div>
-
-  <div id="ticket" style="display: none;">
-    <h2>Ticket de Compra</h2>
-    <div id="ticketContent"></div>
-    <button onclick="shareTicket()">Compartir Ticket</button>
-  </div>
-  
-
-  <script>
-    var cartItems = [];
-    var total = 0.00;
-    var minPurchaseAmount = 20.00;
-
-    function addToCart(productName, price) {
-      cartItems.push(productName);
-      total += price;
-      updateCart();
-    }
-
-    function updateCart() {
-      var cartItemsElement = document.getElementById('cartItems');
-      cartItemsElement.innerHTML = '';
-
-      cartItems.forEach(function(item) {
-        var listItem = document.createElement('li');
-        listItem.textContent = item;
-        cartItemsElement.appendChild(listItem);
-      });
-
-      var totalElement = document.getElementById('total');
-      totalElement.textContent = 'Total: $' + total.toFixed(2);
-
-      var warningElement = document.getElementById('warning');
-      var checkoutButton = document.getElementById('checkoutButton');
-
-      if (total < minPurchaseAmount) {
-        warningElement.textContent = 'La compra mínima para habilitar el delivery es de $' + minPurchaseAmount.toFixed(2);
-        checkoutButton.disabled = true;
-      } else {
-        warningElement.textContent = 'Ya has habilitado el delivery';
-        checkoutButton.disabled = false;
-      }
-    }
-
-    function showCheckoutForm() {
-      document.getElementById('cart').style.display = 'none';
-      document.getElementById('checkoutForm').style.display = 'block';
-    }
-
-    function sendWhatsAppMessage() {
-      var name = document.getElementById('name').value;
-      var address = document.getElementById('address').value;
-
-      var message = 'Lista de compras:\n';
-
-      cartItems.forEach(function(item) {
-        message += '- ' + item + '\n';
-      });
-
-      message += 'Total: $' + total.toFixed(2) + '\n';
-      message += 'Dirección de entrega: ' + address;
-
-      var whatsappURL = 'https://wa.me/5522998883449?text=' + encodeURIComponent(message);
-
-      window.location.href = whatsappURL;
-    }
-
-    // Categorías y productos
-    var categories = [
-      {
-        name: 'Alimentos',
-        products: [
-          {
-            name: 'Frutas frescas',
-            price: 10.00
-          },
-          {
-            name: 'Verduras frescas',
-            price: 8.00
-          },
-          // Agrega más productos aquí
-        ]
-      },
-      {
-        name: 'Higiene personal',
-        products: [
-          {
-            name: 'Jabón de manos',
-            price: 5.00
-          },
-          {
-            name: 'Champú y acondicionador',
-            price: 12.00
-          },
-          // Agrega más productos aquí
-        ]
-      },
-      {
-        name: 'Limpieza del hogar',
-        products: [
-          {
-            name: 'Detergente para ropa',
-            price: 8.00
-          },
-          {
-            name: 'Limpia pisos',
-            price: 7.50
-          },
-          // Agrega más productos aquí
-        ]
-      }
-    ];
-
-    var categoriesElement = document.getElementById('categories');
-
-    categories.forEach(function(category) {
-      var categoryElement = document.createElement('div');
-      categoryElement.className = 'category';
-      categoryElement.textContent = category.name;
-      categoryElement.addEventListener('click', function() {
-        showProducts(category.products);
-      });
-      categoriesElement.appendChild(categoryElement);
-    });
-
-    function showProducts(products) {
-      categoriesElement.innerHTML = '';
-
-      var backButton = document.createElement('button');
-      backButton.textContent = 'Volver a categorías';
-      backButton.addEventListener('click', function() {
-        categoriesElement.innerHTML = '';
-        categories.forEach(function(category) {
-          var categoryElement = document.createElement('div');
-          categoryElement.className = 'category';
-          categoryElement.textContent = category.name;
-          categoryElement.addEventListener('click', function() {
-            showProducts(category.products);
-          });
-          categoriesElement.appendChild(categoryElement);
-        });
-      });
-      categoriesElement.appendChild(backButton);
-
-      products.forEach(function(product) {
-        var productElement = document.createElement('div');
-        productElement.className = 'product';
-        productElement.innerHTML = '<img src="ruta_de_la_imagen/' + product.name.toLowerCase().replace(/ /g, '-') + '.jpg" alt="' + product.name + '"><div><h3>' + product.name + '</h3><p>Precio: $' + product.price.toFixed(2) + '</p><button onclick="addToCart(\'' + product.name + '\', ' + product.price + ')">Añadir al carrito</button></div>';
-        categoriesElement.appendChild(productElement);
-      });
-    }
+        <h1>Programa do culto sabatico para o Sonoplasta</h1>
     
-    // ...
+        <p>
+           <b> Sábado 3 de Junho 2023</b>
+        </p>
+        <section id="seccion-1">
+ <div class="inicio">
+       
+          <h1>ESCOLA SABATINA</h1>
+          <a class="hora-butto"> <b> Apresentação de ES: </b>  </a>
+         
+   
+ <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fondo.html" target="_blank" class="hora-butto">
+    <input type="checkbox" id="item-1" name="item" value="valor del item">
+    <b>Musica de fundo:</b>      instrumental
+</a>
 
-    function generateTicket() {
-      var name = document.getElementById('name').value;
-      var address = document.getElementById('address').value;
-      var ticketContent = document.getElementById('ticketContent');
+  <a onclick="toggleLista()" class="hora-butto">
+    <input type="checkbox" id="item-2">
+    <b>Louvor:</b> 
+  </a>
+  <div id="lista" style="display: none">
+    <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor3.html"
+       target="_blank"
+       class="hora-butto lista-item"
+       onclick="event.stopPropagation();">___________________________________</a>
+  </div>
 
-      // Generar contenido del ticket
-      var ticketHTML = '<p><strong>Nombre:</strong> ' + name + '</p>';
-      ticketHTML += '<p><strong>Dirección de entrega:</strong> ' + address + '</p>';
-      ticketHTML += '<h3>Lista de compras:</h3>';
-      ticketHTML += '<ul>';
-      cartItems.forEach(function(item) {
-        ticketHTML += '<li>' + item + '</li>';
-      });
-      ticketHTML += '</ul>';
-      ticketHTML += '<p><strong>Total:</strong> $' + total.toFixed(2) + '</p>';
+    <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/hinoinies.html" target="_blank" class="hora-butto">    <input type="checkbox" id="item-3" name="item" value="valor del item">
+       <b> Hino Inicial: N° </b> 
+    </a>
+    
 
-      ticketContent.innerHTML = ticketHTML;
+    <a  class="hora-butto"> <input type="checkbox" id="item-111" >
+     <b>Verso Biblico: </b>
+  </a>
+            
 
-      // Ocultar el formulario de checkout y mostrar el ticket
-      document.getElementById('checkoutForm').style.display = 'none';
-      document.getElementById('ticket').style.display = 'block';
+    <a href="https://bemestardojardim.github.io/IASD-VILA-VERDE/informativo.html" target="_blank" class="hora-butto">    <input type="checkbox" id="item-222" name="item" value="valor del item">
+       <b> Informativo mundial:</b> 03 de Junho 2023
+    </a>
+    
+
+    <a onclick="toggleListaas()" class="hora-butto"> <input type="checkbox" id="item-844" name="item" value="valor del item">
+     <b> Mensagem:  </b>
+  </a>
+           
+              
+    
+
+    <a onclick="toggleListaaass()" class="hora-butto"> <input type="checkbox" id="item-84" name="item" value="valor del item">
+     <b> Oração: </b>
+  </a>
+           
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/inicioes.html"
+                    target="_blank"
+                    class="hora-butto"
+                    > <input type="checkbox" id="item-5" name="item" value="valor del item"><b>9:00-10:10:</b> Escola Sabatina</a
+                >
+           
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/umahora.html"
+                    target="_blank"
+                    class="hora-butto"> <input type="checkbox" id="item-6" name="item" value="valor del item">
+                    <b>Contagem  uma hora:</b> | clik Aqui</a
+                >
+           
+    
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/fines.html"
+                    target="_blank"
+                    class="hora-butto"
+                    > <input type="checkbox" id="item-44" name="item" value="valor del item"> <b>10:05:   Vinheta :</b> 5 minutos para Finalizar ES</a
+                >
+          
+    
+
+    <a onclick="toggleLista()" class="hora-butto"> <input type="checkbox" id="item-33" name="item" value="valor del item">
+     <b>Mensajem: </b>
+  </a>
+           
+    
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/hinofines.html"
+                    target="_blank"
+                    
+                    class="hora-butto"
+                    > <input type="checkbox" id="item-7" name="item" value="valor del item"> <b> Hino final: </b>
+                    N°484</a
+                >
+          
+    
+
+    <a onclick="toggleLista()" class="hora-butto"> <input type="checkbox" id="item-88" name="item" value="valor del item">
+     <b>10:16: Oracao Final</b>
+  </a>
+           
+    
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/anuncios.html"
+                    target="_blank"
+                    class="hora-butto"
+                    >   <input type="checkbox" id="item-9" name="item" value="valor del item"> <b> Anuncios: </b> 03 de Junho- 2023 <br> Perguntar</a
+                >
+          
+            </div>
+            <div class="doxologia">
+             
+            <h1>DOXOLOGIA</h1>
+
+     
+    
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/entrada.html"
+                    target="_blank"
+                    class="hora-button"><input type="checkbox" id="item-10" name="item" value="valor del item">
+                    <b>Entrada a Plataforma:</b>  Hino 21 </a
+                >
+
+                <a class="hora-button" onclick="accion11()">    <input type="checkbox" id="item-11" name="item" value="valor del item">
+                    <b>Oraçao:</b>______________ 
+                </a>
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/provadevede.html"
+                    target="_blank"
+                    class="hora-button"
+                    ><input type="checkbox" id="item-12" name="item" value="valor del item"><b>Provade e Vede:</b> 03 de Junho 2023</a
+                >
+     
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/ofertorio.html"
+                    target="_blank"
+                    class="hora-button"
+                    ><input type="checkbox" id="item-13" name="item" value="valor del item"><b>Diaconos Recolhem as Oferendas:</b>  Hino 572 </a
+                >
+     
+    
+         <a onclick="toggleLista4()" class="hora-button">    <input type="checkbox" id="item-999" >
+
+<b>  Momento de Louvor: click aqui </b> 
+  </a>
+    <div id="lista4" style="display: none">
+        
+       
+ <a class="hora-button" href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor2.html" target="_blank"> <b> louvor  : Cd jovem-<b/> tu es o meu deus
+                  <a/> 
+                  
+                   <a class="hora-button" href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor1.html" target="_blank"> <br> <b> Louvor: Prisma Brasil-<b/>  toma o meu coração
+                <br>
+                  <a/> 
+
+
+ 
+    </div>
+    
+         <a onclick="toggleLista2()" class="hora-button">    <input type="checkbox" id="item-90" >
+
+<b>  hino inicial-escolha do pregador: </b> 
+  </a>
+    <div id="lista2" style="display: none">
+       
+       
+ <a class="hora-button" href="https://bemestardojardim.github.io/IASD-VILA-VERDE/hinoinicial2.html" target="_blank"> <b> Hino- N°29 :<b/> 
+                <br>  Nome:O amor de
+                  <a/> 
+                 
+
+
+ 
+    </div>
+  
+                <a class="hora-button" onclick="accion11()">  <input type="checkbox" id="item-22" name="item" value="valor del item">
+                    <b>Horaçao de Joelhos:</b>
+                </a>
+          
+    
+                <a class="hora-button" onclick="accion11()"><input type="checkbox" id="item-23" name="item" value="valor del item">
+                    <b>Adoraçao infantil:</b> NÃO HA  
+                </a>
+        
+   
+                <a class="hora-button" onclick="accion11()"> <input type="checkbox" id="item-24" name="item" value="valor del item">
+                   <b> Musica especial 
+</b>  (PERGUNTAR)  </a>
+          
+   
+                <a class="hora-button" onclick="accion11()"> <input type="checkbox" id="item-25" name="item" value="valor del item"><b>Sermão: </b>  o clamor move o coração de Deus  </a>
+                <div> 
+                
+                
+                
+                </div>
+   
+    
+         <a onclick="toggleLista3()" class="hora-button">    <input type="checkbox" id="item-26" >
+
+                  <b>  Hino final-Escolha do Pregador:</b> 
+  </a>
+    <div id="lista3" style="display: none">
+        
+       
+ <a class="hora-button" href="https://bemestardojardim.github.io/IASD-VILA-VERDE/hinofinal.html" target="_blank"> <b> Hino- N°477:<b/> 
+                <br>  Nome:Face a face eu ei de velo
+                  <a/> 
+              
+
+
+ 
+    </div>
+
+                <a class="hora-button" href="https://bemestardojardim.github.io/IASD-VILA-VERDE/salida.html" onclick="accion11()">    <input type="checkbox" id="item-27" name="item" value="valor del item">
+                   <b> Salida</b>   Nos braços de Jesus
+                </a>
+                   
+                            </section>
+
+        
+        <section id="seccion-2">
+            
+</div>
+            <h1>Utilidades</h1>
+              
+
+   
+                <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/louvor3.html"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-48" name="item" value="valor del item">Música Apelo Pastoral | clik Aqui</a
+                >
+   
+                <a
+                    href="https://rdrop.link/"
+                    target="_blank"
+                    class="hora-button"
+                    > <input type="checkbox" id="item-448" name="item" value="valor del item">tranferir arquivos para o computador | clik Aqui</a
+                >
+   
+
+    
+
+            
+       
+            <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertir HTML a PDF</title>
+    <!-- El script de la librería-->
+    <script src="html2pdf.bundle.min.js"></script>
+    <!--Nuestro script, que se encarga de crear el PDF usando la librería-->
+    <script src="script.js"></script>
+    <!-- Algunos estilos -->
+
+    
+    
+                <a
+                    id="btnCrearPdf"
+                    class="hora-button"
+                    ><input type="checkbox" id="item-45" name="item" value="valor del item"> Baixar o Programa | pdf
+                </a>
+            
+             <a
+                    href="https://bemestardojardim.github.io/IASD-VILA-VERDE/Tedte.html"
+                    target="_blank"
+                    class="hora-button"
+                    >  formularios programa</a
+                >
+               
+           
+
+
+
+         
+            
+
+
+
+                </section>
+   
+
+    </body>
+    
+    <footer>
+        
+    
+        <h4>
+            Este conteúdo é exclusivo para administradores e contém ferramentas
+            e utilidades para a gestão da plataforma. Dessa forma, podemos realizar as tarefas de administração de forma
+            eficiente e eficaz.
+        </h4>
+        <a href="https://chat.whatsapp.com/BUZ7MJ1Ouv8CCErltXgZ2t" target="_blank" class="whatsapp-button">Entrar ao grupo de WhatsApp</a>
+
+<style>
+    .whatsapp-button {
+        background-color: #25D366;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: 5px;
+        display: block;
+    margin: 0 auto;
+        
     }
+</style>
 
-    function shareTicket() {
-      var ticketContent = document.getElementById('ticketContent').innerHTML;
+</footer>
 
-      // Crear contenido para compartir en WhatsApp
-      var shareContent = '¡Gracias por tu compra!\n\n';
-      shareContent += ticketContent;
-
-      // URL de WhatsApp con el mensaje y contenido compartido
-      var whatsappURL = 'https://wa.me/5522998883449?text=' + encodeURIComponent(shareContent);
-
-      // Abrir enlace de WhatsApp para compartir
-      window.open(whatsappURL, '_blank');
-    }
-  </script>
-</body>
+   
 </html>
