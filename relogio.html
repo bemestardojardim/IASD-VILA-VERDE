@@ -91,7 +91,7 @@
             background: black; /* Fondo negro */
             color: white; /* Letras blancas */
             font-family: Arial, sans-serif;
-            font-size: 42px; /* Tamaño de fuente grande */
+            font-size: 100px; /* Tamaño de fuente gigante */
             font-weight: bold; /* Texto en negrita */
             text-align: center; /* Centrado horizontalmente */
             resize: none; /* Evita que el usuario redimensione el cuadro de texto */
@@ -105,6 +105,27 @@
             padding: 5px 10px;
             cursor: pointer;
             margin-top: 10px;
+            font-size: 50px; /* Tamaño de fuente del botón gigante */
+        }
+
+        /* Media query para escritorio */
+        @media (min-width: 768px) {
+            #relogio {
+                font-size: 10rem; /* Aumentar el tamaño del reloj en escritorio */
+            }
+
+            #data {
+                font-size: 6rem; /* Aumentar el tamaño de la fecha en escritorio */
+            }
+
+            #botoes .botao {
+                font-size: 3rem; /* Aumentar el tamaño de los botones en escritorio */
+                padding: 10px 20px; /* Tamaño de padding original para los botones en escritorio */
+            }
+
+            #mensajeTexto {
+                font-size: 150px; /* Aumentar el tamaño del texto del mensaje en escritorio */
+            }
         }
     </style>
 </head>
@@ -127,6 +148,7 @@
         </div>
     </div>
 
+  
    <script>
         var dataVisivel = false; // Variable para rastrear la visibilidad de la fecha
         var relojInterval; // Variable para almacenar el intervalo del reloj
