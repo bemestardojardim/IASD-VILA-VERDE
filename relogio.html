@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        #relogio {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        #data {
+            font-size: 2rem;
+            margin-top: 10px;
+            display: none; /* Inicialmente oculta */
+        }
+
+        #logo {
+            width: 100px; /* Ancho ajustado para el logotipo */
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        #botoes {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .botao {
+            background-color: #333;
+            color: #ccc;
+            border: none;
+            border-radius: 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-right: 10px;
+        }
+
+        .botao:hover {
+            background-color: #555;
+            color: white;
+        }
+
+        /* Estilos para el campo de mensaje y botón */
+        #mensajeOverlay {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+        }
+
+        #mensajeContenedor {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black; /* Fondo negro */
+        }
+
+        #mensajeTexto {
+            width: 80%; /* Ocupa el 80% del ancho del contenedor */
+            height: 80%; /* Ocupa el 80% del alto del contenedor */
+            border: none;
+            background: black; /* Fondo negro */
+            color: white; /* Letras blancas */
+            font-family: Arial, sans-serif;
+            font-size: 42px; /* Tamaño de fuente grande */
+            font-weight: bold; /* Texto en negrita */
+            text-align: center; /* Centrado horizontalmente */
+            resize: none; /* Evita que el usuario redimensione el cuadro de texto */
+        }
+
+        #cerrarMensaje {
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="relogio"></div>
+    <div id="data"></div>
+    <img id="logo" src="seu_logo.png" alt="Logo">
+    <div id="botoes">
+        <!-- Botón "Mensaje" colocado junto con otros botones -->
+        <button class="botao" onclick="alternarData()">Data</button>
+        <button class="botao" onclick="mostrarMensaje()">Mensaje</button>
+        <button class="botao" onclick="alternarTelaCheia()">Tela Cheia</button>
+    </div>
+
+    <!-- Campo de mensaje y botón -->
+    <div id="mensajeOverlay">
+        <div id="mensajeContenedor">
+            <textarea id="mensajeTexto" placeholder="Escribe tu mensaje..."></textarea>
+            <button id="cerrarMensaje" onclick="cerrarMensaje()">Cerrar</button>
+        </div>
+    </div>
+
+   <script>
+        var dataVisivel = false; // Variable para rastrear la visibilidad de la fecha
+        var relojInterval; // Variable para almacenar el intervalo del reloj
+
+        function mostrarHora() {
+            var data = new Date();
+            var hora = data.getHours();
+            var minutos = data.getMinutes();
+            var segundos = data.getSeconds();
+
+            hora = (hora < 10) ? "0" + hora : hora;
+            minutos = (minutos < 10) ? "0" + minutos : minutos;
+            segundos = (segundos < 10) ? "0" + segundos : segundos;
+
+            var horaAtual = hora + ":" + minutos + ":" + segundos;
+            document.getElementById("relogio").innerHTML = horaAtual;
+        }
+
+        function alternarData() {
+            dataVisivel = !dataVisivel; // Invierte la visibilidad de la fecha
+
+            if (dataVisivel) {
+                mostrarData();
+            } else {
+                ocultarData();
+            }
+        }
+
+        function mostrarData() {
+            var data = new Date();
+            var dia = data.getDate();
+            var mes = data.getMonth() + 1;
+            var ano = data.getFullYear();
+
+            dia = (dia < 10) ? "0" + dia : dia;
+            mes = (mes < 10) ? "0" + mes : mes;
+
+            var dataAtual = dia + "/" + mes + "/" + ano;
+            document.getElementById("data").innerHTML = "Data: " + dataAtual;
+            document.getElementById("data").style.display = "block"; // Muestra la fecha
+        }
+
+        function ocultarData() {
+            document.getElementById("data").style.display = "none"; // Oculta la fecha
+        }
+
+        function alternarTelaCheia() {
+            var doc = window.document;
+            var docEl = doc.documentElement;
+
+            var solicitarTelaCheia = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+            var cancelarTelaCheia = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+            if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+                solicitarTelaCheia.call(docEl);
+            } else {
+                cancelarTelaCheia.call(doc);
+            }
+        }
+
+        function mostrarMensaje() {
+            // Mostrar el campo de mensaje
+            var mensajeOverlay = document.getElementById("mensajeOverlay");
+            mensajeOverlay.style.display = "block";
+
+            // Pausar la actualización del reloj mientras se muestra el mensaje
+            clearInterval(relojInterval);
+
+            // Bloquear la pantalla completa si está activada
+            var doc = window.document;
+            if (doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement) {
+                doc.exitFullscreen();
+            }
+        }
+
+        function cerrarMensaje() {
+            // Ocultar el campo de mensaje
+            var mensajeOverlay = document.getElementById("mensajeOverlay");
+            mensajeOverlay.style.display = "none";
+
+            // Reanudar la actualización del reloj
+            relojInterval = setInterval(mostrarHora, 1000);
+
+            // Volver a activar la pantalla completa si estaba activada
+            var doc = window.document;
+            var docEl = doc.documentElement;
+            var solicitarTelaCheia = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+            if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+                solicitarTelaCheia.call(docEl);
+            }
+        }
+
+        relojInterval = setInterval(mostrarHora, 1000);
+        mostrarHora();
+    </script>
+</body>
+</html>
