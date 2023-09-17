@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <style>
         body {
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -19,44 +20,42 @@
         }
 
         #relogio {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: bold;
+            color: #03a9f4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         #data {
             font-size: 2rem;
             margin-top: 10px;
-            display: none; /* Inicialmente oculta */
-        }
-
-        #logo {
-            width: 100px; /* Ancho ajustado para el logotipo */
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
+            display: none;
+            color: #f44336;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
 
         #botoes {
             position: absolute;
-            bottom: 10px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
         }
 
         .botao {
-            background-color: #333;
-            color: #ccc;
+            background-color: #f44336;
+            color: #fff;
             border: none;
-            border-radius: 15px;
-            padding: 10px 20px;
+            border-radius: 25px;
+            padding: 15px 30px;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
-            margin-right: 10px;
+            font-size: 1.2rem;
         }
 
         .botao:hover {
-            background-color: #555;
-            color: white;
+            background-color: #ff5722;
         }
 
         /* Estilos para el campo de mensaje y botón */
@@ -81,50 +80,50 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: black; /* Fondo negro */
+            background: #121212;
         }
 
         #mensajeTexto {
-            width: 80%; /* Ocupa el 80% del ancho del contenedor */
-            height: 80%; /* Ocupa el 80% del alto del contenedor */
+            width: 80%;
+            height: 80%;
             border: none;
-            background: black; /* Fondo negro */
-            color: white; /* Letras blancas */
-            font-family: Arial, sans-serif;
-            font-size: 100px; /* Tamaño de fuente gigante */
-            font-weight: bold; /* Texto en negrita */
-            text-align: center; /* Centrado horizontalmente */
-            resize: none; /* Evita que el usuario redimensione el cuadro de texto */
+            background: #121212;
+            color: #fff;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            resize: none;
         }
 
         #cerrarMensaje {
-            background: #555;
-            color: white;
+            background: #f44336;
+            color: #fff;
             border: none;
-            border-radius: 5px;
-            padding: 5px 10px;
+            border-radius: 25px;
+            padding: 15px 30px;
             cursor: pointer;
             margin-top: 10px;
-            font-size: 50px; /* Tamaño de fuente del botón gigante */
+            font-size: 1.2rem;
         }
 
         /* Media query para escritorio */
         @media (min-width: 768px) {
             #relogio {
-                font-size: 10rem; /* Aumentar el tamaño del reloj en escritorio */
+                font-size: 6rem;
             }
 
             #data {
-                font-size: 6rem; /* Aumentar el tamaño de la fecha en escritorio */
+                font-size: 3rem;
             }
 
             #botoes .botao {
-                font-size: 3rem; /* Aumentar el tamaño de los botones en escritorio */
-                padding: 10px 20px; /* Tamaño de padding original para los botones en escritorio */
+                font-size: 1.5rem;
+                padding: 20px 40px;
             }
 
             #mensajeTexto {
-                font-size: 150px; /* Aumentar el tamaño del texto del mensaje en escritorio */
+                font-size: 2rem;
             }
         }
     </style>
@@ -132,7 +131,7 @@
 <body>
     <div id="relogio"></div>
     <div id="data"></div>
-    <img id="logo" src="seu_logo.png" alt="Logo">
+
     <div id="botoes">
         <!-- Botón "Mensaje" colocado junto con otros botones -->
         <button class="botao" onclick="alternarData()">Data</button>
@@ -148,10 +147,9 @@
         </div>
     </div>
 
-  
    <script>
-        var dataVisivel = false; // Variable para rastrear la visibilidad de la fecha
-        var relojInterval; // Variable para almacenar el intervalo del reloj
+        var dataVisivel = false;
+        var relojInterval;
 
         function mostrarHora() {
             var data = new Date();
@@ -168,7 +166,7 @@
         }
 
         function alternarData() {
-            dataVisivel = !dataVisivel; // Invierte la visibilidad de la fecha
+            dataVisivel = !dataVisivel;
 
             if (dataVisivel) {
                 mostrarData();
@@ -188,11 +186,11 @@
 
             var dataAtual = dia + "/" + mes + "/" + ano;
             document.getElementById("data").innerHTML = "Data: " + dataAtual;
-            document.getElementById("data").style.display = "block"; // Muestra la fecha
+            document.getElementById("data").style.display = "block";
         }
 
         function ocultarData() {
-            document.getElementById("data").style.display = "none"; // Oculta la fecha
+            document.getElementById("data").style.display = "none";
         }
 
         function alternarTelaCheia() {
@@ -210,14 +208,10 @@
         }
 
         function mostrarMensaje() {
-            // Mostrar el campo de mensaje
             var mensajeOverlay = document.getElementById("mensajeOverlay");
             mensajeOverlay.style.display = "block";
-
-            // Pausar la actualización del reloj mientras se muestra el mensaje
             clearInterval(relojInterval);
 
-            // Bloquear la pantalla completa si está activada
             var doc = window.document;
             if (doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement || doc.msFullscreenElement) {
                 doc.exitFullscreen();
@@ -225,14 +219,10 @@
         }
 
         function cerrarMensaje() {
-            // Ocultar el campo de mensaje
             var mensajeOverlay = document.getElementById("mensajeOverlay");
             mensajeOverlay.style.display = "none";
-
-            // Reanudar la actualización del reloj
             relojInterval = setInterval(mostrarHora, 1000);
 
-            // Volver a activar la pantalla completa si estaba activada
             var doc = window.document;
             var docEl = doc.documentElement;
             var solicitarTelaCheia = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
