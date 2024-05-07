@@ -21,7 +21,7 @@ body {
 }
 
 .inicio {
-  background-color: #E6E6FA; /* Color más tenue para el inicio */
+  background-color: purple; /* Color más tenue para el inicio */
   width: 100%;
   height: 100%;
 }
